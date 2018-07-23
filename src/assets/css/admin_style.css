@@ -1,0 +1,100 @@
+/* CSS Document */
+* {
+	list-style-type: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+	font-family: funky-fonts;
+	src:url(../fonts/Naughty%20Nights.ttf);
+}
+.container {
+	width: auto;
+	margin:0;
+	padding:0;
+
+}
+.vcenter {
+	margin-top: 1%;
+}
+h1 {
+	color: #4c428f;
+	font-size: 25px;
+	margin-bottom: 5%;
+}
+
+h2 {
+	color: #0C9;
+	font-size: 30px;
+	margin-top: 15%;
+}
+input {
+	margin-bottom: 5%;
+}
+ #confirm_password {
+	margin-bottom: 0;
+}
+button {
+	padding: 2.5% 0;
+	color: #FFF;
+	background-color: #4c428f;
+	border-style: none;
+	border-radius: 5px;
+	border: solid 1px #4c428f;
+	font-size: 20px;
+}
+button:hover {
+	color: #fff;
+	background-color: #6154b5 !important;
+	border-color: #6154b5 !important;
+}
+.form-control {
+	border-style: none;
+	border-bottom: solid 1px #666;
+	padding-top: 4.5%;
+	padding-bottom: 4.5%;
+	font-size: 14px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-radius: 0;
+}
+.form-control1 {
+	height: 55px;
+}
+.captcha-button {
+	width: 50%;
+	margin-bottom: 10px;
+}
+.button-style {
+	margin-top: 40px;
+}
+.img-responsive1 {
+	display: none !important;
+}
+.funky-font
+{
+	width:auto;
+	padding:10px;
+	font-size:28px;
+	font-family: funky-fonts;
+	border:solid 1px #CCCCCC;
+	text-align:center;
+	font-family: 'Roboto', sans-serif;
+}
+a
+{
+	text-align:left;
+	font-size:18px;
+	font-family: 'Roboto', sans-serif;
+	color:#F60;
+	padding-left:15px;
+}
+ @media only screen and (max-width: 1000px) {
+.img-responsive {
+	display: none;
+}
+.img-responsive1 {
+	display: block !important;
+}
+}

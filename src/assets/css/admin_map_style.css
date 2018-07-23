@@ -1,0 +1,157 @@
+/* CSS Document */
+* {
+	list-style-type: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+	font-family: funky-fonts;
+	src: url(../fonts/Naughty%20Nights.ttf);
+}
+.container {
+	width: auto;
+	margin: 0;
+	padding: 0;
+}
+.vcenter {
+	margin-top: 1%;
+}
+h1 {
+	color: #4c428f;
+	font-size: 24px;
+	margin-bottom: 8%;
+	text-align: center;
+}
+p {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.0em;
+	font-weight: 300;
+	line-height: 1.7em;
+	color: #666;
+	padding: 10px;
+}
+#sidebar {
+	background-color: #FFF !important;
+	box-shadow: 1px 0.5px #aaaaaa;
+}
+#sidebar .sidebar-header {
+	background-color: #FFF !important;
+}
+#sidebar ul.components {
+	border-bottom: none;
+	padding: 20px 0px;
+}
+#content {
+	width: -webkit-fill-available;
+	padding: 0;
+}
+.navbar {
+	padding: 15px 10px;
+	background: #4c428f;
+	border: none;
+	border-radius: 0;
+	margin-bottom: 40px;/* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); */
+}
+.btn-info {
+	color: #fff;
+	background-color: #4c428f !important;
+	border-color: #4c428f !important;
+}
+.btn-info:hover {
+	color: #fff;
+	background-color: #6154b5 !important;
+	border-color: #6154b5 !important;
+}
+a, a:hover, a:focus {
+	color: #44387c;
+	text-decoration: none;
+	transition: all 0.3s;
+}
+.form-inline {
+	padding: 0;
+}
+.sol-inner-container {
+	position: relative;
+	height: 45px;
+	line-height: 39px;
+	background-color: white;
+}
+select {
+	padding: 10px;
+	padding-right: 70px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+.form-control {
+	display: block;
+	width: 100%;
+	height: 44px;
+}
+<!--
+style4-overwrite--> input {
+}
+.form-group {
+	margin-bottom: 40px;
+}
+.checkbox {
+	margin-bottom: 40px;
+}
+#confirm_password {
+	margin-bottom: 0;
+}
+button {
+	padding: 2.5% 0;
+	color: #FFF;
+	background-color: #4c428f;
+	border-style: none;
+	border-radius: 5px;
+	border: solid 1px #4c428f;
+	font-size: 30px;
+}
+button:hover {
+	color: #fff;
+	background-color: #6154b5 !important;
+	border-color: #6154b5 !important;
+}
+.dropdown {
+	display: inline-block;
+}
+.dropdown-toggle {
+	background-color: #FFF;
+	color: #777777;
+	border: solid 1px #CCC;
+	padding: 8px 14px;
+}
+.btn-default {
+	color: #777;
+	background-color: #fff;
+	border-color: #4c428f;
+}
+.btn-default:hover {
+	color: #777;
+	background-color: #fff;
+	border-color: #adadad;
+}
+a {
+	text-align: left;
+	font-size: 12px;
+	font-family: 'Roboto', sans-serif;
+}
+.form-container {
+	background-color: white;
+	/* box-shadow: 1px 1px #888888; */
+	box-shadow: 2px 2px 5px #888888;
+	padding: 50px;
+}
+ @media only screen and (max-width: 1000px) {
+.img-responsive1 {
+	display: block !important;
+}
+.form-container {
+	background-color: transparent;
+	/* box-shadow: 1px 1px #888888; */
+	box-shadow: none;
+	padding: 20px;
+}
+}

@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-xs-12" style="padding:0.5rem;">
+		<div class="card" style="box-shadow: 1px 1px 4px #888888; height: auto;
+								 overflow-y: auto;">
+			<div class="card-header">
+				<h1 class="card-title" style="text-align:center;">Firmware History</h1>
+			</div>
+			<div class="card-body collapse in">
+				<div class="card-block" style="padding:0.5rem;">
+					<div class="row">
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th rowspan="2" style='vertical-align:middle;'>Created<br/> DateTime</th>
+									<th rowspan="2" style='vertical-align:middle;'>Schedule DateTime</th>
+									<th rowspan="2" style='vertical-align:middle;'>Firmware Version</th>
+									<th rowspan="2" style='vertical-align:middle;'>Model Number</th>
+									<th rowspan="2" style='vertical-align:middle;'>Update Type</th>
+									<th colspan="3" style="text-align:center;">Status</th>
+								</tr>
+								<tr>
+									<td>Total</td>
+									<td>Failed</td>
+									<td>Success</td>
+								</tr>
+							</thead> 
+							<tbody id="firmware-history-body">
+								<tr *ngFor="let row of data">
+									<td>{{row.created | date}}</td>
+									<td>{{row.updateType == 'immediate' ? '-' : row.scheduleDateTime | date}}</td>
+									<td>{{row.firmwareVersion}}</td>
+									<td>{{row.modelNumber}}</td>
+									<td>{{row.updateType}}</td>
+									<td>{{row.status ? row.status.total : '-'}}</td>
+									<td>{{row.status ? row.status.fail : '-'}}</td>
+									<td>{{row.status ? row.status.success : '-'}}</td>
+								</tr>
+							</tbody>
+						</table>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

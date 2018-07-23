@@ -1,0 +1,87 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="card" style="box-shadow: 1px 1px 4px #888888;">
+			<div class="card-header">
+				<h1 class="card-title" style="text-align:center;">Firmware Update</h1>
+			</div>
+			<div class="card-body collapse in">
+				<div class="card-block">
+					<div class="row">
+						<div class="col-lg-8 offset-lg-2 col-xs-10 col-md-10 offset-md-1 offset-xs-1">
+							<form id="sw-create-event-form">
+								<div id="error" class="error" style="display: none;">
+									<p id="error-text"></p>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="projectinput1">Firmware version </label>
+									<div class="col-md-9">
+										<select class="form-control select2" id="firmwareId" style="width:100%;" name="firmwareId" onchange="getModelNumber();">
+											<option value="">select</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="projectinput1">Model number </label>
+									<div class="col-md-9">
+										<select class="form-control select2" id="modelId">
+											<option value="">select</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="projectinput1">MAC Address </label>
+									<div class="col-md-9">
+										<div class="container">
+											<div class="input-group" >
+												<!--<input type="text" class="mac-address-style" id="mac_address_org_inp" placeholder="Select the MAC Address" name="" value="" data-toggle="modal" data-target="#myModal" readonly>
+<span class="input-group-addon" style="font-size:18px; padding-right:10px;"><i class="ft-airplay"></i></span>-->
+
+
+												<input type="text" class="mac-address-style" id="mac_address_org_inp" placeholder="Select the MAC Address" name="" value="" readonly onclick="loadMacAddr();">
+												<span class="input-group-addon" style="font-size:18px; padding-right:10px;"><i class="ft-airplay"></i></span>
+											</div>
+
+
+										</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="projectinput1">Immediate</label>
+									<div class="col-md-3" style="padding-left: 20px;">
+										<input type="radio" class="form-control" name="updateType" value="immediate" style="height:30px; display: inline; width:auto !important;" onclick="hideFirmwareDT();">
+									</div>
+									<label class="col-md-3 label-control" for="projectinput1">scheduled</label>
+									<div class="col-md-3">
+										<input type="radio" class="form-control" value="schedule" name="updateType" checked onclick="showFirmwareDT();" style="height:30px; display: inline; width:auto !important;">
+									</div>
+								</div>
+								<div class="form-group row" id="firmware_update_datetime">
+									<label class="col-md-2 label-control" for="projectinput1">Date</label>
+									<div class="col-md-12 col-lg-4">									
+										<div class="input-group">
+											<input id="datepicker" class="form-control" type="text" class="form-control" name="start_date" />
+											<span class="input-group-addon">
+												<span class="fa fa-calendar"></span>
+											</span>
+										</div>
+
+									</div>
+									<label class="col-md-2 label-control" for="projectinput1">Time</label>
+									<div class="col-md-12 col-lg-4">										
+										<div class='input-group date' >
+											<input type='text' class="form-control" id='timepicker1' name="start_time"/>
+											<span class="input-group-addon">
+												<span class="ft-clock"></span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<button type="button" class="btn btn-default update-style col-xs-12" id="swupgrade-event-add-btn">UPDATE</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
