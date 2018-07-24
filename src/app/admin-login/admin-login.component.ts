@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { environment } from '../../environments/environment';
+import { AuthService } from '../admin/auth.service';
 
 @Component({
 	selector: 'app-admin-login',
@@ -14,7 +16,9 @@ export class AdminLoginComponent implements OnInit {
 	email: string = 'testadmin@gmail.com';
 	password: string = '';
 
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient,
+				private router: Router,
+				private auth: AuthService) { }
 
 	ngOnInit() {
 	}
@@ -37,7 +41,10 @@ export class AdminLoginComponent implements OnInit {
 		})
 		.subscribe(
 			res => {
-				console.log(res);
+			//console.log(res);
+				this.auth.setLoggedIn(true);
+				this.auth.setToken(res);
+				this.router.navigate(['/admin/firmware-update']);
 			},
 			err => {
 				console.log(err);

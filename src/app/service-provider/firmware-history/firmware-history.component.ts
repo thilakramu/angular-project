@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Title} from "@angular/platform-browser";
 
 import { environment } from '../../../environments/environment';
 import { SpAuthService } from '../sp-auth.service';
@@ -16,25 +17,29 @@ export class FirmwareHistoryComponent implements OnInit {
 	offsetValue = 0;
 	length = 0;
 
-	constructor(private http: HttpClient,
-				 private auth: SpAuthService,
-				 private fmService: FirmwareHistoryService
-				) { }
+	constructor(
+		private http: HttpClient,
+	 	private auth: SpAuthService,
+		private fmService: FirmwareHistoryService,
+	 	private titleService:Title
+	) {
+		this.titleService.setTitle("Firmware History");
+	}
 
 	ngOnInit() {
 		this.getHistory();
 	}
 
 	data: any = [];
-	
+
 
 	getHistory() {
 		if (this.loadingMore || this.noMoreRecords) {
 			return;
 		}
-		
+
 		this.loadingMore = true;
-		
+
 		this.fmService.getFWHistory(environment.SP_API_BASE_URL + '/swupgrade/event/history?start='+this.offsetValue)
 			.subscribe(data => {
 			if (data['results'].length == 0) {

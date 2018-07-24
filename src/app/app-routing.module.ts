@@ -15,6 +15,10 @@ const routes: Routes = [
 		path: 'service-provider',
 		loadChildren: './service-provider/service-provider.module#ServiceProviderModule',
     },
+	{
+		path: 'admin',
+		loadChildren: './admin/admin.module#AdminModule',
+    }
 ];
 
 @NgModule({

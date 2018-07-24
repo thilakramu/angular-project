@@ -1,0 +1,77 @@
+<div class="row">
+	<div class="col-xs-12" style="padding:0.5rem;">
+		<div class="card" style="box-shadow: 1px 1px 4px #888888; height: auto;
+								 overflow-y: auto;">
+			<div class="card-header">
+				<h1 class="card-title" style="text-align:center;">Firmware Update</h1>
+			</div>
+			<div class="card-body collapse in">
+				<div class="card-block" style="padding:0.5rem;">
+					<div class="row">
+						<div class="col-md-8 offset-md-2 col-xs-10 offset-xs-1">
+							<div *ngIf="error" class="error">
+								<p>{{ errorMsg }}</p>
+							</div>
+							<form #adminfwCreate="ngForm" id="sw-create-form" (ngSubmit)="onSubmit()">
+								<div id="error" class="error" style="display: none;">
+									<p id="error-text"></p>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="projectinput1">Firmware version</label>
+									<div class="col-md-9">
+										<input type="text" id="firmwareVersion" class="form-control" placeholder="Firmware version" name="firmwareVersion" [(ngModel)]="firmwareVersion" required>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="projectinput1">Model Number</label>
+									<div class="col-md-9">
+										<input type="text" id="modelNumber" class="form-control" placeholder="Model Number" name="modelNumber" [(ngModel)]="modelNumber" required>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="projectinput1">Pcode</label>
+									<div class="col-md-9">
+										<input type="text" id="pcode" class="form-control" placeholder="pcode" name="pcode" [(ngModel)]="pcode" required>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-md-3 label-control" for="projectinput1">Browse Image</label>
+									<div class="col-md-9">
+										<input type="file" id="upfile" class="form-control" name="upfile" style="height:auto !important;" [(ngModel)]="upfile" required>
+									</div>
+								</div>
+								<!--<div class="checkbox">
+									<label>
+										<input type="checkbox" name="refFlag" id="map_update_rwap" onclick="mapUpdateRwap()" checked="">
+										Relation with any other products</label>
+								</div>
+								<div class="form-group row" id="map_update_rwap_fw_version">
+									<label class="col-md-3 label-control" for="projectinput1">Firmware version</label>
+									<div class="col-md-9">
+										<select class="form-control select2 select2-hidden-accessible" id="refFirmwareVersion" tabindex="-1" aria-hidden="true">
+											<option>Select</option>
+
+											<option value="3.0.500.1754">3.0.500.1754</option><option value="3.0.500.1737">3.0.500.1737</option><option value="3.0.500.1732">3.0.500.1732</option><option value="3.0.500.1727">3.0.500.1727</option><option value="3.0.500.1720">3.0.500.1720</option><option value="3.0.500.1719">3.0.500.1719</option><option value="3.0.500.1713">3.0.500.1713</option><option value="3.0.500.1713">3.0.500.1713</option><option value="3.0.500.1712">3.0.500.1712</option><option value="3.0.500.1706">3.0.500.1706</option><option value="3.0.500.1703">3.0.500.1703</option><option value="3.0.500.0006">3.0.500.0006</option></select>
+									</div>
+								</div>
+								<div class="form-group row" id="map_update_rwap_model_number">
+									<label class="col-md-3 label-control" for="projectinput1">Model number</label>
+									<div class="col-md-9">
+										<select class="form-control select2 select2-hidden-accessible" id="refModelNumber" tabindex="-1" aria-hidden="true">
+											<option>Select</option>
+											<option value="GS2026E">GS2026E</option><option value="GS2026E">GS2026E</option><option value="GS2026E">GS2026E</option><option value="GS2026E">GS2026E</option><option value="GS2026E">GS2026E</option><option value="GS2026E">GS2026E</option><option value="GS4026E">GS4026E</option><option value="GS2026E">GS2026E</option><option value="GS2026E">GS2026E</option><option value="GS2026E">GS2026E</option><option value="GS2026E">GS2026E</option><option value="GS2026E">GS2026E</option>
+										</select>
+									</div>
+								</div>-->
+								<button [disabled]="!adminfwCreate.form.valid" class="btn btn-md btn-primary" type="submit">Submit</button>
+							</form>
+
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-firmware-list',
@@ -8,9 +7,7 @@ import {Title} from "@angular/platform-browser";
 })
 export class FirmwareListComponent implements OnInit {
 
-  constructor(private titleService:Title) { 
-	  this.titleService.setTitle("Firmware List");
-  }
+  constructor() { }
 
   ngOnInit() {
   }
