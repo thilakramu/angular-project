@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import {Title} from "@angular/platform-browser";
 
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../auth.service';
@@ -15,8 +16,11 @@ export class FirmwareUpdateComponent implements OnInit {
 	constructor(
 		private http: HttpClient,
 		private auth: AuthService,
-		private router: Router
-	) { }
+		private router: Router,
+		 private titleService:Title
+	) {
+		this.titleService.setTitle("Admin Firmware Update");		
+	}
 
 	ngOnInit() {
 	}
@@ -55,10 +59,21 @@ export class FirmwareUpdateComponent implements OnInit {
 			return;
 		}
 		
-		this.http.post(environment.ADMIN_API_BASE_URL + '/swupgrade/firmware/create', {
+		console.log(this.upfile);
+		
+		const formData: FormData = new FormData();
+    	formData.append('firmwareVersion', this.firmwareVersion);
+    	formData.append('modelNumber', this.modelNumber);
+    	formData.append('pcode', this.pcode);
+    	formData.append('upfile', this.upfile);
+		
+		
+		this.http.post(environment.ADMIN_API_BASE_URL + '/swupgrade/firmware/create', /*{
 			firmwareVersion: this.firmwareVersion,
-			modelNumber: this.modelNumber
-		}, this.httpOptions)
+			modelNumber: this.modelNumber,
+			pcode: this.pcode,
+			upfile: this.upfile
+		}*/ formData, this.httpOptions)
 		.subscribe(
 			res => {
 				console.log(res);return;
@@ -69,6 +84,10 @@ export class FirmwareUpdateComponent implements OnInit {
 				console.log(err);
 			}
 		);
+	}
+	
+	handleFileInput(files: FileList) {
+		this.upfile = files.item(0);
 	}
 	
 	addError( msg: string ) {
