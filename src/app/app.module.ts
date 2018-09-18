@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
+
 
 import { AppComponent } from './app.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
@@ -11,6 +14,7 @@ import { SpLoginComponent } from './sp-login/sp-login.component';
 import { SpLogoutComponent } from './sp-logout/sp-logout.component';
 import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
 
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -18,14 +22,18 @@ import { AdminLogoutComponent } from './admin-logout/admin-logout.component';
 		MapUpdateComponent,
 		SpLoginComponent,
 		SpLogoutComponent,
-		AdminLogoutComponent,
-
+		AdminLogoutComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule,
-		HttpClientModule
+		HttpClientModule,
+		BrowserAnimationsModule,
+		DlDateTimePickerDateModule
+	],
+	exports: [
+		DlDateTimePickerDateModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

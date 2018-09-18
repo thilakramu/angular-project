@@ -5,6 +5,7 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { FirmwareListComponent } from './firmware-list/firmware-list.component';
 import { ServiceProviderListComponent } from './service-provider-list/service-provider-list.component';
 import { FirmwareUpdateComponent } from './firmware-update/firmware-update.component';
+import { BubbleComponent } from './bubble/bubble.component';
 
 const adminRoutes: Routes = [
 	{
@@ -22,6 +23,10 @@ const adminRoutes: Routes = [
 			{
 				path: 'service-provider-list',
 				component: ServiceProviderListComponent
+			},
+			{
+				path: 'bubble-chart',
+				component: BubbleComponent
 			}			
 		]
 	}

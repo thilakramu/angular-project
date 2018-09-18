@@ -5,6 +5,7 @@ import {Title} from "@angular/platform-browser";
 import { environment } from '../../../environments/environment';
 import { SpAuthService } from '../sp-auth.service';
 import { FirmwareHistoryService } from '../firmware-history.service';
+import { EventStatusService } from '../event-status.service';
 
 @Component({
 	selector: 'app-firmware-history',
@@ -16,11 +17,13 @@ export class FirmwareHistoryComponent implements OnInit {
 	noMoreRecords = false;
 	offsetValue = 0;
 	length = 0;
+	appendData = '';
 
 	constructor(
 		private http: HttpClient,
 	 	private auth: SpAuthService,
 		private fmService: FirmwareHistoryService,
+		private esService: EventStatusService,
 	 	private titleService:Title
 	) {
 		this.titleService.setTitle("Firmware History");
@@ -30,7 +33,8 @@ export class FirmwareHistoryComponent implements OnInit {
 		this.getHistory();
 	}
 
-	data: any = [];
+	data: any[] = [];
+	statusData: any[] = [];
 
 
 	getHistory() {
@@ -63,5 +67,42 @@ export class FirmwareHistoryComponent implements OnInit {
 			this.getHistory();
 		}
 	}
+	
+	/*Code for modal dialogue*/
+	
+	display: boolean = false;
+
+    showDialog(eventId, status?) {
+		if (!status) {
+			status = '';
+		}
+		this.esService.getEventStatus(environment.SP_API_BASE_URL + '/swupgrade/event/history/detail?eventId='+eventId.toString()+'&status='+status)
+			.subscribe(data => {
+			if (data['results'].length == 0) {
+				this.statusData = [];
+			} else {
+				//this.statusData = data['results'];
+				let dta = this.statusData;
+				let length = dta.length;
+				let i, s, sd, scheduleString, actionString, message, html='';
+				for (i=0; i<length; i++) {		
+					sd = '-';
+					if (dta[i].updated) {
+						s = new Date(dta[i].updated);
+						sd = s.toLocaleString();
+					}								
+
+					message = dta[i].message ? dta[i].message: '-';
+
+					html += '<tr id="' + dta[i].eventId + '"><td>' + dta[i].macAddr + '</td><td>' + dta[i].status + '</td><td>' + message + '</td><td>' + sd + '</td></tr>';
+				}
+				
+				this.appendData = html;
+			}
+
+			this.display = true;
+		});
+        
+    }
 
 }

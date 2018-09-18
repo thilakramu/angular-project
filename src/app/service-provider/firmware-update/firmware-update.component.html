@@ -59,23 +59,26 @@
 									<label class="col-md-2 label-control" for="projectinput1">Date</label>
 									<div class="col-md-12 col-lg-4">									
 										<div class="input-group">
-											<input id="datepicker" class="form-control" type="text" class="form-control" name="start_date" />
-											<span class="input-group-addon">
-												<span class="fa fa-calendar"></span>
-											</span>
+											<p-calendar></p-calendar>
 										</div>
 
 									</div>
 									<label class="col-md-2 label-control" for="projectinput1">Time</label>
 									<div class="col-md-12 col-lg-4">										
-										<div class='input-group date' >
-											<input type='text' class="form-control" id='timepicker1' name="start_time"/>
-											<span class="input-group-addon">
-												<span class="ft-clock"></span>
-											</span>
+										<div class='input-group date' >											
+											<p-calendar [timeOnly]="true"></p-calendar>
 										</div>
 									</div>
 								</div>
+								
+								<!--<div class="row">
+								  <div class="col-xs-12 col-12 col-md-4 form-group">
+									<input type="text"
+										   placeholder="Datepicker"
+										   class="form-control"
+										   bsDatepicker>
+								  </div>
+								</div>-->
 								<button type="button" class="btn btn-default update-style col-xs-12" id="swupgrade-event-add-btn">UPDATE</button>
 							</form>
 						</div>

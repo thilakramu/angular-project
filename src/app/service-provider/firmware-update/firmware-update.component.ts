@@ -14,5 +14,6 @@ export class FirmwareUpdateComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+	value: Date;
 }
